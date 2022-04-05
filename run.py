@@ -1,25 +1,26 @@
-import random
+from random import randint
 # Legend:
 # " " empty cell available to guess
 # X for placing ship on the computer board and 'hit' ship on the player board
 # - is miss
 
-# THE BOARDS - 8 x 8 cells 
+# THE BOARDS - 8 x 8 cells
 # Computer board (hidden): used to contain 5 ships with random locations
 COMPUTER_BOARD = [[" "] * 8 for x in range(8)]
-#Player board (displayed): used to display the hit and miss targets after each turn
+# Player board (displayed):
+# used to display the hit and miss targets after each turn
 PLAYER_BOARD = [[" "] * 8 for x in range(8)]
 
 # The top 3 lines print the columns heading, the for loop creates the grid
 def print_board(board):
     print("  A B C D E F G H")
-    print("  -+-+-+-+-+-+-+-+")
+    print("  +-+-+-+-+-+-+-+")
     row_number = 1
     for row in board:
         print("%d|%s|" % (row_number, "|".join(row)))
         row_number += 1
 
-# 
+# Python can only process numbers
 letters_to_numbers = {
     'A': 0,
     'B': 1,
@@ -31,15 +32,16 @@ letters_to_numbers = {
     'H': 7
 }
 
-# Placing 5 ships at random (using the "random" module) by filling 5 empty single cells with an X
+# Placing 5 ships at random by filling 5 empty cells with an X
 def create_ships(board):
     for ship in range(5):
         ship_row, ship_column = randint(0, 7), randint(0, 7)
         while board[ship_row][ship_column] == "X":
             ship_row, ship_column = randint(0, 7), randint(0, 7)
-            board[ship_row][ship_column] = "X"
+        board[ship_row][ship_column] = "X"
 
-
+# The player is prompted to enter 2 coordinates to select a sinle cell.
+# The data has to be valid
 def get_ship_location():
     row = input("Enter the row of the ship (1 to 8): ")
     while row not in "12345678":
@@ -51,10 +53,18 @@ def get_ship_location():
         column = input("Enter the column of the ship: ")
     return int(row) - 1, letters_to_numbers[column]
 
+# To count the number of 'hits' the function counts the "X" across the 64 cells
+def count_hit_ships(board):
+    hits = 0
+    for row in board:
+        for column in row:
+            if column == "X":
+                hits += 1
+    return hits
 
-def count_hit_ships():
-pass
 
+create_ships(COMPUTER_BOARD)
+turns = 10
 
-
-
+print_board(COMPUTER_BOARD)
+print_board(PLAYER_BOARD)

@@ -64,6 +64,7 @@ I tested my code in pep8 on numerous occasions
 <!-- ![ ](docs/pep8.png) -->
 
 ## Fixed Buggs
+-  When I printed the computer_board, the ships didn't show. I fixed it by correcting the indentation in the 'while' loop.
 ## Remaining Buggs
 
 
