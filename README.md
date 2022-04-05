@@ -1,31 +1,88 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome USER_NAME,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+<h1 text-align="center">BATTLESHIP</h1>
 
-## Reminders
+<!-- Click on [Battleship](https://annickrynne.github.io/Battleship/) to access the live project. -->
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
+# INTRODUCTION
+Battleship is game written purely in Python and designed to run on the Code Institute mock terminal on Heroku.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+# EXPERIENCE (UX)
+The target audience: Playing on a Python terminal will attract an audience who is nostalgic of the first games that they used to play with in the seventies. But it's likely that a younger generation of 'gamers' will find the it interesting too. Terminal based games seem to be becoming popular again.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## User Stories
+1. First Time Visitor Goals
+   - I want the rules to be easy to grasp
+   - I want to know my score against the computer
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+2. Returning Visitor Goals
+   - I want to play again to improve my score
+    
+3. Frequent User Goals
+   - I want to see if there is any added features
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Flowchart
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+
+# FEATURES
+
+
+## Welcome! Enter name
+
+- The player is invited to enter his/her name
+
+<!-- ![ ](welcome.png) -->
+
+
+## Rules
+## Run the game
+## Quit or Continue
+## Future Features
+## Data Model
+
+# TECHNOLOGIES USED
+## Languages
+- PYTHON
+
+
+## Frameworks
+<ul>
+      <li>Git: Used for version control: using Gitpod terminal to commit to Git  and Push to GitHub</li>
+      <li>GitHub: Used to store the projects code after being pushed from Git</li>
+      <li>Heroku: Used to run in the Code Institute mock terminal</li>
+</ul>
+
+## Programmes and tools
+- PEP8 to validate the code
+
+# TESTING
+I tested my code in pep8 on numerous occasions
+<!-- ![ ](docs/pep8.png) -->
+
+## Fixed Buggs
+## Remaining Buggs
+
+
+
+# DEPLOYMENT
+This project was deployed using the following steps:<br>
+<ul>
+   <li>Create a Heroku application</li>
+   
+</ul>
+
+# CREDITS
+## Code:
+I followed some free tutorials found online to help me build the game with Python. I used some code from the Code Institute runnable exercices and challenges. I also found some useful code on GitHub:
+
+   - [How to code Battleship in Python - Single player game](https://www.youtube.com/watch?v=tF1WRCrd_HQ)
+   - [Coding Advanced Battleship Part I in Python](https://www.youtube.com/watch?v=xz9GrOwQ_5E)
+   - https://github.com/dmoisset/battleship-dojo
+
+## Acknowledgements to: 
+- My cohort classmates for sharing useful information every day and useful info on the Code Institute Slack Channels
+- The developers who post helpful videos on games tutorials for beginners in JavaScript on YouTube
