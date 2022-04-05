@@ -42,6 +42,7 @@ def create_ships(board):
 
 # The player is prompted to enter 2 coordinates to select a sinle cell.
 # The data has to be valid
+
 def get_ship_location():
     row = input("Enter the row of the ship (1 to 8): ")
     while row not in "12345678":
@@ -64,7 +65,29 @@ def count_hit_ships(board):
 
 
 create_ships(COMPUTER_BOARD)
-turns = 10
 
-print_board(COMPUTER_BOARD)
-print_board(PLAYER_BOARD)
+# print_board(COMPUTER_BOARD)
+# print_board(PLAYER_BOARD)
+
+turns = 10
+while turns > 0:
+    print('Guess a battleship location:')
+    print_board(PLAYER_BOARD)
+    row, column = get_ship_location()
+    if PLAYER_BOARD[row][column] == "-":
+        print("You guessed that one already.")
+    elif PLAYER_BOARD[row][column] == "X":
+        print("It's a HIT!")
+        PLAYER_BOARD[row][column] = "X"
+        turns -= 1
+    else:
+        print("You MISS!")
+        PLAYER_BOARD[row][column] = "O"
+        turns -= 1
+    if count_hit_ships(PLAYER_BOARD) == 5:
+        print("You win!")
+        break
+    print(f"You have {turns} turns left")
+    if turns == 0:
+        print("You ran out of turns: GAME OVER")
+        break
