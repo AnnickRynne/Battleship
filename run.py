@@ -4,12 +4,35 @@ from random import randint
 # X for placing ship on the computer board and 'hit' ship on the player board
 # - is miss
 
+# name = input("Please enter your name here: " )
+# print(f"Wecome to the game, {name.capitalize()}!")
+
+# def rules():
+#     c_rules = input("Do you know how to play? y/n: ")
+#     if c_rules.lower() == "n":
+#         print(
+#         "You must destroy 5 ships placed at random by the computer "
+#         "on the grid. Each ship occupies one cell. "
+#         "Enter a number for a row and a letter for the column. "
+#         "You have 10 turns to destroy the computer's "
+#         "hidden fleet...GOOD LUCK!"
+#         )
+#         # print("Legend: X for placing ship and hit battleship, "
+#         # "' ' for available space and '-' for missed shot"
+#         # )
+#     elif c_rules.lower() == "y":
+#         print(f"Ok, let's play then! {name.capitalize()}")
+#     else:
+#         print("That is not a valid option. Please try again")
+
+
 # THE BOARDS - 8 x 8 cells
 # Computer board (hidden): used to contain 5 ships with random locations
 COMPUTER_BOARD = [[" "] * 8 for x in range(8)]
 # Player board (displayed):
 # used to display the hit and miss targets after each turn
 PLAYER_BOARD = [[" "] * 8 for x in range(8)]
+
 
 # The top 3 lines print the columns heading, the for loop creates the grid
 def print_board(board):
@@ -91,3 +114,21 @@ while turns > 0:
     if turns == 0:
         print("You ran out of turns: GAME OVER")
         break
+
+
+# def stop_playing():
+#     play_game = True
+#     while play_game:
+#         continue_playing = input("Would you like to continue? y/n: ")
+#         if continue_playing.lower() == "y":
+#             print("You said Yes, continue")
+#         elif continue_playing.lower() == "n":
+#             print("Stopping the game...")
+#             play_game = False
+#         else:
+#             print("That is not a valid option. Please try again")
+
+
+# def main():
+#     stop_playing()
+# main()
