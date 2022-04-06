@@ -24,7 +24,7 @@ The target audience: Playing on a Python terminal will attract an audience who i
 
 ## Flowchart
 
-
+![ ](https://lucid.app/lucidchart/bd951b44-92b4-4389-91be-4ffcc3baac01/edit?invitationId=inv_9597ba94-0515-4d8b-957f-1fbedd6b8c2b)
 
 
 
