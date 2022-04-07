@@ -69,15 +69,17 @@ def create_ships(board):
 def get_ship_location():
     row = input("Enter the row of the ship (1 to 8): ")
     while row not in "12345678":
-        print('Not an appropriate choice, please select a valid row')
-        row = input("Enter the row of the ship: ")
+        print("Not an appropriate choice, please enter a valid row")
+        row = input("Enter the row of the ship (1 to 8): ")
     column = input("Enter the column of the ship (A to H): ").upper()
     while column not in "ABCDEFGH":
-        print('Not an appropriate choice, please select a valid column')
-        column = input("Enter the column of the ship: ")
+        print("Not an appropriate choice, please select a valid column")
+        column = input("Enter the column of the ship (A to H): ").upper()
     return int(row) - 1, letters_to_numbers[column]
 
 # To count the number of 'hits' the function counts the "X" across the 64 cells
+
+
 def count_hit_ships(board):
     hits = 0
     for row in board:
@@ -87,34 +89,38 @@ def count_hit_ships(board):
     return hits
 
 
-create_ships(COMPUTER_BOARD)
+def play_game():
+    """
+    Prints the player-board
+    """
+    computer_board = [[" "] * 8 for x in range(8)]
+    player_board = [[" "] * 8 for i in range(8)]
+    create_ships(computer_board)
+    turns = 10
+    while turns > 0:
+        print('Guess a battleship location:')
+        print_board(player_board)
+        row, column = get_ship_location()
+        if player_board[row][column] == "-":
+            print("You guessed that one already")
+        elif player_board[row][column] == "X":
+            print("It's a HIT!")
+            player_board[row][column] = "X"
+            turns -= 1
+        else:
+            print("You MISS!")
+            player_board[row][column] = "O"
+            turns -= 1
+        if count_hit_ships(player_board) == 5:
+            print("You win!")
+            break
+        print(f"You have {turns} turn(s) left")
+        if turns == 0:
+            print("You've run out of turns: GAME OVER")
+            break
 
-# print_board(COMPUTER_BOARD)
-# print_board(PLAYER_BOARD)
 
-turns = 10
-while turns > 0:
-    print('Guess a battleship location:')
-    print_board(PLAYER_BOARD)
-    row, column = get_ship_location()
-    if PLAYER_BOARD[row][column] == "-":
-        print("You guessed that one already.")
-    elif PLAYER_BOARD[row][column] == "X":
-        print("It's a HIT!")
-        PLAYER_BOARD[row][column] = "X"
-        turns -= 1
-    else:
-        print("You MISS!")
-        PLAYER_BOARD[row][column] = "O"
-        turns -= 1
-    if count_hit_ships(PLAYER_BOARD) == 5:
-        print("You win!")
-        break
-    print(f"You have {turns} turns left")
-    if turns == 0:
-        print("You ran out of turns: GAME OVER")
-        break
-
+play_game()
 
 # def stop_playing():
 #     play_game = True
