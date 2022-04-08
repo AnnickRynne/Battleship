@@ -64,7 +64,9 @@ I tested my code in pep8 on numerous occasions
 <!-- ![ ](docs/pep8.png) -->
 
 ## Fixed Buggs
--  When I printed the computer_board, the ships didn't show. I fixed it by correcting the indentation in the 'while' loop.
+- When I printed the computer_board, the ships didn't show. I fixed it by correcting the indentation in the 'while' loop.
+- I first put the Rules function at the top and couldn't figure out why the 'sunk' ships didn't show on the player_board. I had to move the function under play_game.
+
 ## Remaining Buggs
 
 
