@@ -8,6 +8,8 @@
 # INTRODUCTION
 Battleship is game written purely in Python and designed to run on the Code Institute mock terminal on Heroku.
 
+<br>
+
 # EXPERIENCE (UX)
 The target audience: Playing on a Python terminal will attract an audience who is nostalgic of the first games that they used to play with in the seventies. But it's likely that a younger generation of 'gamers' will find the it interesting too. Terminal based games seem to be becoming popular again.
 
@@ -26,6 +28,7 @@ The target audience: Playing on a Python terminal will attract an audience who i
 
 ![ ]
 
+<br>
 
 # FEATURES
 
@@ -43,6 +46,8 @@ The target audience: Playing on a Python terminal will attract an audience who i
 ## Future Features
 ## Data Model
 
+<br>
+
 # TECHNOLOGIES USED
 ## Languages
 - PYTHON
@@ -58,6 +63,8 @@ The target audience: Playing on a Python terminal will attract an audience who i
 ## Programmes and tools
 - PEP8 to validate the code
 
+<br>
+
 # TESTING
 I tested my code in pep8 on numerous occasions
 <!-- ![ ](docs/pep8.png) -->
@@ -68,14 +75,24 @@ I tested my code in pep8 on numerous occasions
 
 ## Remaining Buggs
 
-
+<br>
 
 # DEPLOYMENT
-This project was deployed using the following steps:<br>
+To deploy project 3, I created an account on the [Heroku website](https://www.heroku.com/)
 <ul>
-   <li>Create a Heroku application</li>
-   
+   <li>Log in Heroku</li>
+   <li>Click on "New" button in top right corner, select "App"</li>
+   <li>You're in the Heroku dashboard. Enter app name: a-battleship-game ; Enter region: Europe</li>
+   <li>Click on "Create App"</li>
+   <li>Click on the "Settings" tab (important: must be done before "Deploy")</li>
+   <li>"Add buildpack" section: click and select, in this order (you can change the order by dragging if necessary): 1) Heroku/python 2) Heroku/nodejs</li>
+   <li>"Config Vars" section: 1) Config PORT (key) 8000 (value) 2) Config CREDS (Key) and copy-paste content of the package.json file from your vs code folder</li>
+   <li>Click on the "Deploy" tab</li>
+   <li>Method: select GitHub (it should say, 'connected') and connect to your repository by clicking on Search</li>
+   <li>You're connected to your repository: scroll down the page and chose to click on Enable Automatic Deploy or (manual) Deploy Branch to see the deployment</li>
+   <li>When done, "Your app was successfully deployed" appears. Click on the View button to see the app </li>
 </ul>
+<br>
 
 # CREDITS
 ## Code:
