@@ -22,7 +22,6 @@ def print_board(board):
         row_number += 1
 
 
-#computer create 5 ships
 def create_ships(board):
     """
     5 ships are placed at random by the computer \n
