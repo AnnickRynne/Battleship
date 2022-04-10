@@ -4,15 +4,37 @@ from random import randint
 # " " available to guess
 # X is hit on guess board
 # - is miss
-name = input("Please enter your name here: " )
-print(f"Wecome to the game, {name.capitalize()}!")
 
-      
+print("WELCOME TO OUR BATTLESHIP GAME!")
+
+
+def get_name():
+    """
+    Ask for player's name, print thank you message\n
+    Validate a string has been entered
+    Returns:
+    string (name)
+    Prints:
+    'not an appropriate name' if no name entered
+    """
+    name = ''
+    while True:
+        name = input("Please enter your name: ").capitalize()
+        if name != '':
+            print(f"Thank you for joining us {name}!")
+            rules()
+        else:
+            print("This is not an appropriate name.")
+
+
 def print_board(board):
     """
     The two boards are formatted with headers: \n
     Letters from A to H at the top of the 8 columns,\n
     numbers from 1 to 8 for the rows
+    Arg:
+    board: placeholder to format player_board to be printed\n
+    and the computer_board, to be hidden
     """
     print("  A B C D E F G H")
     print("  -+-+-+-+-+-+-+-+")
@@ -26,11 +48,14 @@ def create_ships(board):
     """
     5 ships are placed at random by the computer \n
     by filling 5 empty cells with an X
+    Arg:
+    Int(5). Number of ships to be sunk
+
     """
     for ship in range(5):
-        ship_row, ship_column = randint(0,7), randint(0,7)
+        ship_row, ship_column = randint(0, 7), randint(0, 7)
         while board[ship_row][ship_column] == "X":
-            ship_row, ship_column = randint(0,7), randint(0,7)
+            ship_row, ship_column = randint(0, 7), randint(0, 7)
         board[ship_row][ship_column] = "X"
 
 
@@ -49,7 +74,10 @@ letters_to_numbers = {
 def get_ship_location():
     """
     The player enters coordinates to locate one ship at a time/n
-    The data has to be valid
+    A valid number for row and letter for column are requested
+    returns:
+    row number - 1 (because column 1 is "0" for python)
+    column letter (column string input converted to int)
     """
     row = input("Enter the row of the ship (1 to 8): ")
     while row not in "12345678":
@@ -64,7 +92,9 @@ def get_ship_location():
 
 def count_hit_ships(board):
     """
-    We count how many ships have been sunk. We look for a X in the 64 cells
+    Counts how many ships have been sunk, screening for a X in the 64 cells
+    Returns:
+    count: an integer between 0 and 5
     """
     count = 0
     for row in board:
@@ -77,7 +107,13 @@ def count_hit_ships(board):
 
 def play_game():
     """
-    Prints the player-board
+    Creates the computer board, with 8 rows and columns
+    Asks the player to enter a row and a column 10 times
+    Prints:
+    - player_board (strings), updated after each turn
+    - results or error messages if invalid input (strings)
+    - number of turns left (strings)
+    - score (strings)
     """
     hidden_board = [[" "] * 8 for x in range(8)]
     guess_board = [[" "] * 8 for i in range(8)]
@@ -92,15 +128,15 @@ def play_game():
             print("You guessed that one already")
         elif hidden_board[row][column] == "X":
             print("HIT!")
-            guess_board[row][column] = "X" 
-            turns -= 1  
+            guess_board[row][column] = "X"
+            turns -= 1
         else:
             print("MISS!")
-            guess_board[row][column] = "O"   
-            turns -= 1     
+            guess_board[row][column] = "O"
+            turns -= 1
         if count_hit_ships(guess_board) == 5:
             print("You win!")
-            break
+            quit()
         print(f"You have {turns} turn(s) left")
         if turns == 0:
             print("You've run out of turns: GAME OVER")
@@ -109,7 +145,10 @@ def play_game():
 
 def rules():
     """
-    The player has the option to read the rules before he/she decides to play or not
+    The player decides if he/she needs to read the rules
+    The player then decide to continue or to quit the game
+    Returns:
+    strings: "y" or "n"
     """
     c_rules = input("Do you know how to play? y/n: ").lower()
     if c_rules == "n":
@@ -133,6 +172,5 @@ def rules():
 def main():
     rules()
     play_game()
-
-
+    get_name()
 main()
