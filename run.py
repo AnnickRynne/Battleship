@@ -5,9 +5,6 @@ from random import randint
 # X is hit on guess board
 # O is miss
 
-print("WELCOME TO OUR BATTLESHIP GAME!")
-
-
 def get_name():
     """
     Ask for player's name, print thank you message\n
@@ -19,14 +16,13 @@ def get_name():
     """
     name = ''
     while True:
-        name = input("Please enter your name: ").capitalize()
+        name = input("Please enter your name: ").capitalize().strip()
         if name != '':
             print(f"Thank you for joining us {name}!")
             rules()
+            break
         else:
             print("This is not an appropriate name.")
-            get_name()
-        return name
 
 
 def print_board(board):
@@ -89,14 +85,14 @@ def get_ship_location():
     column letter (column string input converted to int)
     """
     letters_to_numbers = get_letters_to_numbers()
-    row = input("Enter the row of the ship (1 to 8): ")
+    row = input("Enter the row of the ship (1 to 8): ").strip()
     while row not in "12345678":
         print("Not an appropriate choice, please enter a valid row")
-        row = input("Enter the row of the ship (1 to 8): ")
-    column = input("Enter the row of the ship (A to H): ").upper()
+        row = input("Enter the row of the ship (1 to 8): ").strip()
+    column = input("Enter the row of the ship (A to H): ").upper().strip()
     while column not in "ABCDEFGH":
         print("Not an appropriate choice, please select a valid column")
-        column = input("Enter the column of the ship (A to H): ").upper()
+        column = input("Enter the column of the ship (A to H): ").upper().strip()
     return int(row) - 1, letters_to_numbers[column]
 
 
@@ -161,7 +157,7 @@ def rules():
     Returns:
     strings: "y" or "n"
     """
-    c_rules = input("Do you know how to play? y/n: ").lower()
+    c_rules = input("Do you know how to play? y/n: ").lower().strip()
     if c_rules == "n":
         print(
             "You must destroy 5 ships placed at random by the computer "
@@ -170,7 +166,7 @@ def rules():
             "You have 10 turns to destroy the computer's "
             "hidden fleet...\nGOOD LUCK!"
             )
-        if input("Ready to play? y/n: ").lower() != "y":
+        if input("Ready to play? y/n: ").lower().strip() != "y":
             print("Sorry to see you leave...QUIT")
             quit()
     elif c_rules == "y":
@@ -187,6 +183,7 @@ def main():
     rules
     play_game functions from main()
     """
+    print("WELCOME TO OUR BATTLESHIP GAME!")
     get_name()
     rules()
     play_game()
