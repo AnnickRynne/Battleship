@@ -85,6 +85,10 @@ The functions are called in a main function.
 
 # TESTING
 I tested my code in pep8 on numerous occasions
+I used 'print' to check the returned data and printed the 'hidden' board
+I fixed the issues as described in my local terminal
+I ran the game app in Heroku once deployeds
+
 <!-- ![ ](docs/pep8.png) -->
 
 ## Fixed Buggs
