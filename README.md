@@ -31,8 +31,6 @@ The target audience: Playing on a Python terminal will attract an audience who i
 <br>
 
 # FEATURES
-
-
 ## Welcome! Enter name
 
 After a 'Welcome' message, the player must enter his/her name to continue. 
@@ -61,11 +59,14 @@ The player could place his own ships; the 5 ships could have different sizes. Th
 
 ## Data Model
 
+I used functions for all the different stages of the game. 
+The functions are called in a main function.
 <br>
 
 # TECHNOLOGIES USED
 ## Languages
 - PYTHON
+
 ## Cloud Platform for apps
 - HEROKU
 
