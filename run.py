@@ -5,6 +5,24 @@ from random import randint
 # X is hit on guess board
 # O is miss
 
+"""
+Dictionary, used in the get_ship_location
+to convert column letters to numbers
+Returns: string, 0 to 7
+"""
+LETTERS_TO_NUMBERS = {
+   
+    'A': 0,
+    'B': 1,
+    'C': 2,
+    'D': 3,
+    'E': 4,
+    'F': 5,
+    'G': 6,
+    'H': 7
+}
+
+
 def get_name():
     """
     Ask for player's name, print thank you message\n
@@ -57,25 +75,6 @@ def create_ships(board):
         board[ship_row][ship_column] = "X"
 
 
-def get_letters_to_numbers():
-    """
-    Dictionary, used in the get_ship_location
-    to convert column letters to numbers
-    Returns: string, 0 to 7
-    """
-    letters_to_numbers = {
-        'A': 0,
-        'B': 1,
-        'C': 2,
-        'D': 3,
-        'E': 4,
-        'F': 5,
-        'G': 6,
-        'H': 7
-    }
-    return letters_to_numbers
-
-
 def get_ship_location():
     """
     The player enters coordinates to locate one ship at a time
@@ -84,7 +83,6 @@ def get_ship_location():
     row number - 1 (because column 1 is "0" for python)
     column letter (column string input converted to int)
     """
-    letters_to_numbers = get_letters_to_numbers()
     row = input("Enter the row of the ship (1 to 8): ").strip()
     while row not in "12345678":
         print("Not an appropriate choice, please enter a valid row")
@@ -92,8 +90,9 @@ def get_ship_location():
     column = input("Enter the row of the ship (A to H): ").upper().strip()
     while column not in "ABCDEFGH":
         print("Not an appropriate choice, please select a valid column")
-        column = input("Enter the column of the ship (A to H): ").upper().strip()
-    return int(row) - 1, letters_to_numbers[column]
+        column = input(
+            "Enter the column of the ship (A to H): ").upper().strip()
+    return int(row) - 1, LETTERS_TO_NUMBERS[column]
 
 
 def count_hit_ships(board):
