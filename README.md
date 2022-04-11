@@ -26,7 +26,7 @@ The target audience: Playing on a Python terminal will attract an audience who i
 
 ## Flowchart
 
-![ ]
+![ ](docs/flowchart.jpeg)
 
 <br>
 

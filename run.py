@@ -59,26 +59,34 @@ def create_ships(board):
         board[ship_row][ship_column] = "X"
 
 
-letters_to_numbers = {
-    'A': 0,
-    'B': 1,
-    'C': 2,
-    'D': 3,
-    'E': 4,
-    'F': 5,
-    'G': 6,
-    'H': 7
-}
+def get_letters_to_numbers():
+    """
+    Dictionary, used in the get_ship_location
+    to convert column letters to numbers
+    Returns: string, 0 to 7
+    """
+    letters_to_numbers = {
+        'A': 0,
+        'B': 1,
+        'C': 2,
+        'D': 3,
+        'E': 4,
+        'F': 5,
+        'G': 6,
+        'H': 7
+    }
+    return letters_to_numbers
 
 
 def get_ship_location():
     """
-    The player enters coordinates to locate one ship at a time/n
+    The player enters coordinates to locate one ship at a time
     A valid number for row and letter for column are requested
     returns:
     row number - 1 (because column 1 is "0" for python)
     column letter (column string input converted to int)
     """
+    letters_to_numbers = get_letters_to_numbers()
     row = input("Enter the row of the ship (1 to 8): ")
     while row not in "12345678":
         print("Not an appropriate choice, please enter a valid row")
@@ -173,4 +181,5 @@ def main():
     rules()
     play_game()
     get_name()
+    
 main()
