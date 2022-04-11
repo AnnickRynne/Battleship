@@ -25,6 +25,8 @@ def get_name():
             rules()
         else:
             print("This is not an appropriate name.")
+            get_name()
+        return name
 
 
 def print_board(board):
@@ -115,7 +117,8 @@ def count_hit_ships(board):
 
 def play_game():
     """
-    Creates the computer board, with 8 rows and columns
+    Lists inside lists:
+    Creates the two boards with 8 rows and columns
     Asks the player to enter a row and a column 10 times
     Prints:
     - player_board (strings), updated after each turn
@@ -178,8 +181,15 @@ def rules():
 
 
 def main():
+    """
+    Calls the main functions:
+    get_name, 
+    rules
+    play_game functions from main()
+    """
+    get_name()
     rules()
     play_game()
-    get_name()
-    
+
 main()
+

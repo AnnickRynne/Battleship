@@ -39,9 +39,9 @@ The target audience: Playing on a Python terminal will attract an audience who i
 
 ![ ](docs/battleship_flowchart.jpeg)
 
-
+## Get Name
 ## Rules
-## Run the game
+## Play the game
 ## Quit or Continue
 ## Future Features
 ## Data Model
@@ -70,8 +70,10 @@ I tested my code in pep8 on numerous occasions
 <!-- ![ ](docs/pep8.png) -->
 
 ## Fixed Buggs
-- When I printed the computer_board, the ships didn't show. I fixed it by correcting the indentation in the 'while' loop.
-- I first put the Rules function at the top and couldn't figure out why the 'sunk' ships didn't show on the player_board. I had to move the function under play_game.
+- When I printed the computer_board, the ships didn't show. I fixed it by correcting the indentation in the 'while' loop
+- I first put the Rules function at the top and couldn't figure out why the 'sunk' ships didn't show on the player_board. I had to move the function under play_game
+- My get_name function didn't work when placed under the 'main' function: return name was missing
+- Couldn't find a method for 'empty' string to validate the name input: used a solution found online that seems to work
 
 ## Remaining Buggs
 
