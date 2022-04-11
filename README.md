@@ -2,7 +2,7 @@
 
 <h1 text-align="center">BATTLESHIP</h1>
 
-<!-- Click on [Battleship](https://annickrynne.github.io/Battleship/) to access the live project. -->
+Click on [A Battleship Game](https://a-battleship-game.herokuapp.com/) to access the live project.
 
 
 # INTRODUCTION
@@ -35,15 +35,30 @@ The target audience: Playing on a Python terminal will attract an audience who i
 
 ## Welcome! Enter name
 
-- The player is invited to enter his/her name
+After a 'Welcome' message, the player must enter his/her name to continue. 
+No input: "not an appropriate name" is displayed
+Correct input: we move to the Rules
 
-![ ](docs/battleship_flowchart.jpeg)
-
-## Get Name
 ## Rules
+
+Many people know this game, therefore I give them the option to skip the rules by asking if they know how to play. 
+If they accept to read the rules but find that they're not interested in the game, they can quit. If they chose to continue, we move to the Game.
+
 ## Play the game
-## Quit or Continue
+
+The player only sees one grid (the 'guess' board). He enters a number for a row and a letter for a column of his choice. If it's a miss, 'O' is displayed; a win: X. 
+If the same coordinates are entered twice, "You guessed that one already" is displayed.
+A 'O': "MISSED" is displayed
+A 'X': "BATTLESHIP HIT!" is displayed
+
+During the game, the player also sees the following:
+   - His score out of 5
+   - Number of turns left out of 10
+
 ## Future Features
+
+The player could place his own ships; the 5 ships could have different sizes. The number of ships and turns could be increased, the size of the board too.
+
 ## Data Model
 
 <br>
@@ -51,7 +66,8 @@ The target audience: Playing on a Python terminal will attract an audience who i
 # TECHNOLOGIES USED
 ## Languages
 - PYTHON
-
+## Cloud Platform for apps
+- HEROKU
 
 ## Frameworks
 <ul>
@@ -62,6 +78,7 @@ The target audience: Playing on a Python terminal will attract an audience who i
 
 ## Programmes and tools
 - PEP8 to validate the code
+- Lucidchart to create the above flowchart
 
 <br>
 

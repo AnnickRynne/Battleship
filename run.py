@@ -3,7 +3,7 @@ from random import randint
 # Legend:
 # " " available to guess
 # X is hit on guess board
-# - is miss
+# O is miss
 
 print("WELCOME TO OUR BATTLESHIP GAME!")
 
@@ -138,11 +138,11 @@ def play_game():
         if guess_board[row][column] == "-":
             print("You guessed that one already")
         elif hidden_board[row][column] == "X":
-            print("HIT!")
+            print("BATTLESHIP HIT!")
             guess_board[row][column] = "X"
             turns -= 1
         else:
-            print("MISS!")
+            print("MISSED!")
             guess_board[row][column] = "O"
             turns -= 1
         if count_hit_ships(guess_board) == 5:
@@ -183,7 +183,7 @@ def rules():
 def main():
     """
     Calls the main functions:
-    get_name, 
+    get_name
     rules
     play_game functions from main()
     """
@@ -191,5 +191,5 @@ def main():
     rules()
     play_game()
 
-main()
 
+main()
