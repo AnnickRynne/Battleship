@@ -127,8 +127,8 @@ def play_game():
     turns = 6
     while turns > 0:
         print(
-        "Guess a battleship location:\n"
-        "Legend: X is a hit; ~ is a miss"
+            "Guess a battleship location:\n"
+            "Legend: X is a hit; ~ is a miss"
         )
         print_board(guess_board)
         row, column = get_ship_location()
@@ -186,7 +186,7 @@ def main():
     rules
     play_game functions from main()
     """
-    print("\033[30;1;4mWELCOME TO OUR BATTLESHIP GAME!\033[0m\n\n")
+    print("\033[32;1;4mWELCOME TO OUR BATTLESHIP GAME!\033[0m\n\n")
     get_name()
     rules()
     play_game()
