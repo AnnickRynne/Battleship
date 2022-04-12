@@ -81,7 +81,7 @@ def get_ship_location():
     row number - 1 (because column 1 is "0" for python)
     column letter (column string input converted to int)
     """
-    row = input("Enter the row of the ship (1 to 8): \n").strip()
+    row = input("\nEnter the row of the ship (1 to 8): \n").strip()
     while row not in "12345678":
         print("Not an appropriate choice, please enter a valid row")
         row = input("Enter the row of the ship (1 to 8): \n").strip()
@@ -99,11 +99,14 @@ def count_hit_ships(board):
     a X in the 64 cells
     Returns:
     count: an integer between 0 and 5
+    Inside this function, the quit_game function is added
+    to allow the player to quit the game after each go
     """
+    quit_game()
     count = 0
     for row in board:
         for column in row:
-            if column == "X":
+            if column == "\033[31;1;1mX\033[0m":
                 count += 1
     print(f"Score = {count} out of 5")
     return count
@@ -132,9 +135,9 @@ def play_game():
         )
         print_board(guess_board)
         row, column = get_ship_location()
-        if guess_board[row][column] == "-":
+        if guess_board[row][column] == "\033[36;1;1m~\033[0m":
             print("\nYou guessed that one already\n")
-        elif hidden_board[row][column] == "X":
+        elif hidden_board[row][column] == "\033[31;1;1mX\033[0m":
             print("\nBATTLESHIP HIT!\n")
             guess_board[row][column] = "\033[31;1;1mX\033[0m"
             turns -= 1
@@ -177,6 +180,14 @@ def rules():
         play_game()
     else:
         print("That is not a valid option. Please try again")
+
+
+def quit_game():
+    if input("Type any key to continue or 'q' to quit: ").strip().lower() == "q":
+        quit()
+    else:
+        input != "q"
+        pass
 
 
 def main():
