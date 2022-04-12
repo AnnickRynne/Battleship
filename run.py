@@ -50,7 +50,7 @@ def print_board(board):
     board: placeholder to format player_board to be printed
     and the computer_board, to be hidden
     """
-    print("  A B C D E F G H")
+    print("\n  A B C D E F G H")
     print("  -+-+-+-+-+-+-+-+")
     row_number = 1
     for row in board:
@@ -81,15 +81,15 @@ def get_ship_location():
     row number - 1 (because column 1 is "0" for python)
     column letter (column string input converted to int)
     """
-    row = input("Enter the row of the ship (1 to 8): ").strip()
+    row = input("Enter the row of the ship (1 to 8): \n").strip()
     while row not in "12345678":
         print("Not an appropriate choice, please enter a valid row")
-        row = input("Enter the row of the ship (1 to 8): ").strip()
-    column = input("Enter the column of the ship (A to H): ").strip().upper()
+        row = input("Enter the row of the ship (1 to 8): \n").strip()
+    column = input("Enter the column of the ship (A to H): \n").strip().upper()
     while column not in "ABCDEFGH":
         print("Not an appropriate choice, please select a valid column")
         column = input(
-            "Enter the column of the ship (A to H): ").strip().upper()
+            "Enter the column of the ship (A to H): \n").strip().upper()
     return int(row) - 1, LETTERS_TO_NUMBERS[column]
 
 
@@ -123,21 +123,24 @@ def play_game():
     hidden_board = [[" "] * 8 for x in range(8)]
     guess_board = [[" "] * 8 for i in range(8)]
     create_ships(hidden_board)
-    print_board(hidden_board)
+    # print_board(hidden_board)
     turns = 6
     while turns > 0:
-        print("\nGuess a battleship location:\n")
+        print(
+        "Guess a battleship location:\n"
+        "Legend: X is a hit; ~ is a miss"
+        )
         print_board(guess_board)
         row, column = get_ship_location()
         if guess_board[row][column] == "-":
             print("\nYou guessed that one already\n")
         elif hidden_board[row][column] == "X":
             print("\nBATTLESHIP HIT!\n")
-            guess_board[row][column] = "X"
+            guess_board[row][column] = "\033[31;1;1mX\033[0m"
             turns -= 1
         else:
             print("\nMISSED!\n")
-            guess_board[row][column] = "O"
+            guess_board[row][column] = "\033[36;1;1m~\033[0m"
             turns -= 1
         if count_hit_ships(guess_board) == 5:
             print("\nYOU WIN!\n")
@@ -183,7 +186,7 @@ def main():
     rules
     play_game functions from main()
     """
-    print("WELCOME TO OUR BATTLESHIP GAME!\n\n")
+    print("\033[30;1;4mWELCOME TO OUR BATTLESHIP GAME!\033[0m\n\n")
     get_name()
     rules()
     play_game()
