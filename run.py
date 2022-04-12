@@ -5,13 +5,11 @@ from random import randint
 # X is hit on guess board
 # O is miss
 
-"""
-Dictionary, used in the get_ship_location
-to convert column letters to numbers
-Returns: string, 0 to 7
-"""
+
+# Dictionary, used in the get_ship_location
+# to convert column letters to numbers
+# Returns: string, 0 to 7
 LETTERS_TO_NUMBERS = {
-   
     'A': 0,
     'B': 1,
     'C': 2,
@@ -25,7 +23,7 @@ LETTERS_TO_NUMBERS = {
 
 def get_name():
     """
-    Ask for player's name, print thank you message\n
+    Ask for player's name, print thank you message
     Validate a string has been entered
     Returns:
     string (name)
@@ -34,9 +32,9 @@ def get_name():
     """
     name = ''
     while True:
-        name = input("Please enter your name: ").capitalize().strip()
+        name = input("Please enter your name: ").strip().capitalize()
         if name != '':
-            print(f"Thank you for joining us {name}!")
+            print(f"\nThank you for joining us {name}!")
             rules()
             break
         else:
@@ -45,11 +43,11 @@ def get_name():
 
 def print_board(board):
     """
-    The two boards are formatted with headers: \n
-    Letters from A to H at the top of the 8 columns,\n
+    The two boards are formatted with headers:
+    Letters from A to H at the top of the 8 columns,
     numbers from 1 to 8 for the rows
     Arg:
-    board: placeholder to format player_board to be printed\n
+    board: placeholder to format player_board to be printed
     and the computer_board, to be hidden
     """
     print("  A B C D E F G H")
@@ -62,7 +60,7 @@ def print_board(board):
 
 def create_ships(board):
     """
-    5 ships are placed at random by the computer \n
+    5 ships are placed at random by the computer
     by filling 5 empty cells with an X
     Arg:
     Int(5). Number of ships to be sunk
@@ -87,17 +85,18 @@ def get_ship_location():
     while row not in "12345678":
         print("Not an appropriate choice, please enter a valid row")
         row = input("Enter the row of the ship (1 to 8): ").strip()
-    column = input("Enter the row of the ship (A to H): ").upper().strip()
+    column = input("Enter the column of the ship (A to H): ").strip().upper()
     while column not in "ABCDEFGH":
         print("Not an appropriate choice, please select a valid column")
         column = input(
-            "Enter the column of the ship (A to H): ").upper().strip()
+            "Enter the column of the ship (A to H): ").strip().upper()
     return int(row) - 1, LETTERS_TO_NUMBERS[column]
 
 
 def count_hit_ships(board):
     """
-    Counts how many ships have been sunk, screening for a X in the 64 cells
+    Counts how many ships have been sunk, screening for
+    a X in the 64 cells
     Returns:
     count: an integer between 0 and 5
     """
@@ -127,25 +126,25 @@ def play_game():
     print_board(hidden_board)
     turns = 6
     while turns > 0:
-        print('Guess a battleship location:')
+        print("\nGuess a battleship location:\n")
         print_board(guess_board)
         row, column = get_ship_location()
         if guess_board[row][column] == "-":
-            print("You guessed that one already")
+            print("\nYou guessed that one already\n")
         elif hidden_board[row][column] == "X":
-            print("BATTLESHIP HIT!")
+            print("\nBATTLESHIP HIT!\n")
             guess_board[row][column] = "X"
             turns -= 1
         else:
-            print("MISSED!")
+            print("\nMISSED!\n")
             guess_board[row][column] = "O"
             turns -= 1
         if count_hit_ships(guess_board) == 5:
-            print("You win!")
+            print("\nYOU WIN!\n")
             quit()
-        print(f"You have {turns} turn(s) left")
+        print(f"You have {turns} turn(s) left\n")
         if turns == 0:
-            print("You've run out of turns: GAME OVER")
+            print("\nYou've run out of turns: GAME OVER")
             break
 
 
@@ -156,20 +155,22 @@ def rules():
     Returns:
     strings: "y" or "n"
     """
-    c_rules = input("Do you know how to play? y/n: ").lower().strip()
+    c_rules = input("\nDo you know how to play? y/n: ").strip().lower()
     if c_rules == "n":
         print(
-            "You must destroy 5 ships placed at random by the computer "
-            "on the grid. \nEach ship occupies one cell. \n"
-            "Enter a number for a row and a letter for the column. \n"
+            "\nYou must destroy 5 ships placed at random by the computer "
+            "on the grid. \nEach ship occupies one cell.\n"
+            "Enter a number for a row and a letter for the column.\n"
             "You have 10 turns to destroy the computer's "
-            "hidden fleet...\nGOOD LUCK!"
+            "hidden fleet...\n\nGOOD LUCK!\n"
             )
-        if input("Ready to play? y/n: ").lower().strip() != "y":
+        if input("Ready to play? y/n: ").strip().lower() != "y":
             print("Sorry to see you leave...QUIT")
             quit()
+        else:
+            play_game()
     elif c_rules == "y":
-        print("Ok, let's play then!")
+        print("\nOk, let's play then!")
         play_game()
     else:
         print("That is not a valid option. Please try again")
@@ -182,7 +183,7 @@ def main():
     rules
     play_game functions from main()
     """
-    print("WELCOME TO OUR BATTLESHIP GAME!")
+    print("WELCOME TO OUR BATTLESHIP GAME!\n\n")
     get_name()
     rules()
     play_game()
