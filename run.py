@@ -151,7 +151,14 @@ def play_game():
         print(f"You have {turns} turn(s) left\n")
         if turns == 0:
             print("\nYou've run out of turns: GAME OVER")
-            break
+            print("This is the computer board:")
+            print_board(hidden_board)
+            if input(
+                "\nType 's' to start again or any other key to quit: "
+                    ).strip().lower() == "s":
+                play_game()
+            else:
+                quit()
 
 
 def rules():
