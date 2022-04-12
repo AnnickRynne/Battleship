@@ -68,9 +68,9 @@ def create_ships(board):
     """
     for ship in range(20):
         ship_row, ship_column = randint(0, 7), randint(0, 7)
-        while board[ship_row][ship_column] == "X":
+        while board[ship_row][ship_column] == "\033[31;1;1mX\033[0m":
             ship_row, ship_column = randint(0, 7), randint(0, 7)
-        board[ship_row][ship_column] = "X"
+        board[ship_row][ship_column] = "\033[31;1;1mX\033[0m"
 
 
 def get_ship_location():

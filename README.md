@@ -96,6 +96,7 @@ The functions are called in a main function.
 - I first put the Rules function at the top and couldn't figure out why the 'sunk' ships didn't show on the player_board. I had to move the function under play_game
 - My get_name function didn't work when placed under the 'main' function: return name was missing
 - Couldn't find a method for 'empty' string to validate the name input: used a solution found online that seems to work
+- Added style to "X" (ship) but forgot to do it in the create_ships function so no ship could be found...
 
 ## Remaining Buggs
 
