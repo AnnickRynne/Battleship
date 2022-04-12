@@ -66,7 +66,7 @@ def create_ships(board):
     Int(5). Number of ships to be sunk
 
     """
-    for ship in range(5):
+    for ship in range(20):
         ship_row, ship_column = randint(0, 7), randint(0, 7)
         while board[ship_row][ship_column] == "X":
             ship_row, ship_column = randint(0, 7), randint(0, 7)
@@ -127,7 +127,7 @@ def play_game():
     guess_board = [[" "] * 8 for i in range(8)]
     create_ships(hidden_board)
     # print_board(hidden_board)
-    turns = 6
+    turns = 15
     while turns > 0:
         print(
             "Guess a battleship location:\n"
@@ -183,10 +183,15 @@ def rules():
 
 
 def quit_game():
-    if input("Type any key to continue or 'q' to quit: ").strip().lower() == "q":
+    """
+    The player can decide to quit at any
+    time during the game by pressing 'q'
+    """
+    if input(
+            "Type any key to continue or 'q' to quit: "
+            ).strip().lower() == "q":
         quit()
     else:
-        input != "q"
         pass
 
 
