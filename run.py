@@ -60,10 +60,10 @@ def print_board(board):
 
 def create_ships(board):
     """
-    5 ships are placed at random by the computer
-    by filling 5 empty cells with an X
+    20 ships are placed at random by the computer
+    by filling 20 empty cells with an X
     Arg:
-    Int(5). Number of ships to be sunk
+    Int(20). Number of ships to be sunk
 
     """
     for ship in range(20):
@@ -147,6 +147,7 @@ def play_game():
             turns -= 1
         if count_hit_ships(guess_board) == 5:
             print("\nYOU WIN!\n")
+            print_board(guess_board)
             quit()
         print(f"You have {turns} turn(s) left\n")
         if turns == 0:
@@ -174,8 +175,8 @@ def rules():
             "\nYou must destroy 5 ships placed at random by the computer "
             "on the grid. \nEach ship occupies one cell.\n"
             "Enter a number for a row and a letter for the column.\n"
-            "You have 10 turns to destroy the computer's "
-            "hidden fleet...\n\nGOOD LUCK!\n"
+            "You have 15 turns to destroy the computer's "
+            "hidden fleet...which counts 20 ships in total\n\nGOOD LUCK!\n"
             )
         if input("Ready to play? y/n: ").strip().lower() != "y":
             print("Sorry to see you leave...QUIT")
