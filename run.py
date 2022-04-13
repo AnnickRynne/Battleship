@@ -100,10 +100,10 @@ def get_ship_location():
                 column = LETTERS_TO_NUMBERS[column]
                 break
             else:
-                 print("Wrong input, please select a column between A and H")
+                print("Wrong input, please select a column between A and H")
         except KeyError:
             print("Not an appropriate choice, please select a valid column")
-    return row, column 
+    return row, column
 
 def count_hit_ships(board):
     """
@@ -111,10 +111,10 @@ def count_hit_ships(board):
     a X in the 64 cells
     Returns:
     count: an integer between 0 and 5
-    Inside this function, the quit_game function is added
+    Inside this function, the help_or_quit_game function is added
     to allow the player to quit the game after each go
     """
-    quit_game()
+    help_or_quit_game()
     count = 0
     for row in board:
         for column in row:
@@ -154,7 +154,7 @@ def play_game():
             guess_board[row][column] = "\033[31;1;1mX\033[0m"
             turns -= 1
         else:
-            print("\nMISSED!\n")
+            print("\nYOU MISSED!\n")
             guess_board[row][column] = "\033[36;1;1m~\033[0m"
             turns -= 1
         if count_hit_ships(guess_board) == 5:
@@ -202,14 +202,26 @@ def rules():
         print("That is not a valid option. Please try again")
 
 
-def quit_game():
+def help_or_quit_game():
     """
-    The player can decide to quit at any
-    time during the game by pressing 'q'
+    The player can decide to get some help by pressing "h"
+    or quit at any time during the game by pressing 'q'
     """
-    if input(
-            "Type any key to continue or 'q' to quit: "
-            ).strip().lower() == "q":
+    help_or_quit = input(
+        "Type any key to continue, 'h' for help \n"
+        "or 'q' to quit: ").strip().lower()
+    if help_or_quit == "h":
+        if help_or_quit == "h":
+            print(
+                "------------------------------------------\n"
+                "When you guess a row and a column\n"
+                "you either miss or hit a battleship:\n"
+                "A red X is a hit; a blue 'wave' is a miss\n"
+                "There are 20 hidden ships: you only need\n"
+                "to find 5 ships to win!\n"
+                "------------------------------------------"
+                )
+    elif help_or_quit == "q":
         quit()
     else:
         pass
