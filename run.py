@@ -81,16 +81,25 @@ def get_ship_location():
     row number - 1 (because column 1 is "0" for python)
     column letter (column string input converted to int)
     """
-    row = input("\nEnter the row of the ship (1 to 8): \n").strip()
-    while row not in "12345678":
-        print("Not an appropriate choice, please enter a valid row")
-        row = input("Enter the row of the ship (1 to 8): \n").strip()
-    column = input("Enter the column of the ship (A to H): \n").strip().upper()
-    while column not in "ABCDEFGH":
-        print("Not an appropriate choice, please select a valid column")
-        column = input(
-            "Enter the column of the ship (A to H): \n").strip().upper()
-    return int(row) - 1, LETTERS_TO_NUMBERS[column]
+    while True:
+        try:
+            row = input("\nEnter the row of the ship (1 to 8): ").strip()
+            if row in "12345678":
+                row = int(row) - 1
+                break
+        except ValueError:
+            print("Not an appropriate choice, please enter a valid row")
+        except TypeError:
+            print("Not an appropriate choice, please enter a valid row")
+    while True:
+        try:
+            column = input("Enter the column of the ship (A to H): ").strip().upper()
+            if column in "ABCDEFGH":
+                column = LETTERS_TO_NUMBERS[column]
+                break
+        except KeyError:
+            print("Not an appropriate choice, please select a valid column")
+    return row, column 
 
 
 def count_hit_ships(board):
@@ -175,7 +184,7 @@ def rules():
             "\nYou must destroy 5 ships placed at random by the computer "
             "on the grid. \nEach ship occupies one cell.\n"
             "Enter a number for a row and a letter for the column.\n"
-            "You have 15 turns to destroy the computer's "
+            "You have 15 turns to do serious damage to the computer's\n"
             "hidden fleet...which counts 20 ships in total\n\nGOOD LUCK!\n"
             )
         if input("Ready to play? y/n: ").strip().lower() != "y":
