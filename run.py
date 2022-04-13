@@ -87,6 +87,8 @@ def get_ship_location():
             if row in "12345678":
                 row = int(row) - 1
                 break
+            else:
+                print("Wrong input, please select a row between 1 and 8")
         except ValueError:
             print("Not an appropriate choice, please enter a valid row")
         except TypeError:
@@ -97,10 +99,11 @@ def get_ship_location():
             if column in "ABCDEFGH":
                 column = LETTERS_TO_NUMBERS[column]
                 break
+            else:
+                 print("Wrong input, please select a column between A and H")
         except KeyError:
             print("Not an appropriate choice, please select a valid column")
     return row, column 
-
 
 def count_hit_ships(board):
     """
