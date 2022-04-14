@@ -143,7 +143,7 @@ def play_game():
     guess_board = [[" "] * 8 for i in range(8)]
     create_ships(hidden_board)
 
-    turns = 15
+    turns = 20
     while turns > 0:
         print(
             "  Guess a battleship location:\n"

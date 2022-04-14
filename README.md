@@ -39,26 +39,32 @@ The target audience:
    - 'Welcome' message, the player enters his/her name
          - No input: "not an appropriate name" is displayed
          - The name is only used once, for the thank you message
-   - If player doesn't answer "n" to the next question, the game starts
-
+   - If player answers anything but "n" to the next question, the game starts
+   - Player selects "n" to 'do you know how to play?': Rules are displayed 
 
 ![ ](docs/a_welcome.jpg)
 
 ## Rules
-Many people know this game, therefore I give them the option to skip the rules by asking if they know how to play. 
-If they accept to read the rules but find that they're not interested in the game,
-they can quit. If they chose to continue, we move to the Game.
+   - Player not interested in the game: they can quit
+   - Otherwise, player starts the game
+
+![ ](docs/b_rules.jpg)
 
 ## Play the game
 The player only sees one grid (the 'guess' board). He enters a number for a row and a letter for a column of 
 his choice. If it's a miss, 'O' is displayed; a win: X. 
 If the same coordinates are entered twice, "You guessed that one already" is displayed.
-A 'O': "YOUMISSED" is displayed
-A 'X': "BATTLESHIP SUNK!" is displayed
+Wrong input: The player will get a message until the input is correct (see image below)
+A  blue '~': "YOU MISSED" is displayed on the board
+A red 'X': "BATTLESHIP SUNK!" is displayed on the board
 
 During the game, the player also sees the following:
    - His score out of 5
-   - Number of turns left out of 10
+   - Number of turns left out of 20
+
+After each turn, the player has the option to leave the game by pressing 'q' or to get a reminder of the rules by pressing 'h'.
+
+![ ](docs/c_game.jpg)
 
 ## Future Features
 The player could place his own ships; the 5 ships could have different sizes.<br>
