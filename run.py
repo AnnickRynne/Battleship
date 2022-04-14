@@ -101,9 +101,11 @@ def get_ship_location():
                 column = LETTERS_TO_NUMBERS[column]
                 break
             else:
-                print("\n  Wrong input, please select a column between A and H")
+                print(
+                    "\n  Wrong input, please select a column between A and H")
         except KeyError:
-            print("\n  Not an appropriate choice, please select a valid column")
+            print(
+                "\n  Not an appropriate choice, please select a valid column")
     return row, column
 
 
@@ -210,7 +212,7 @@ def help_or_quit_game():
     or quit at any time during the game by pressing 'q'
     """
     help_or_quit = input(
-        "\n  Type any key to continue, 'h' for help \n"
+        "\n  Type any key to see your guess, 'h' for help \n"
         "  or 'q' to quit: ").strip().lower()
     if help_or_quit == "h":
         if help_or_quit == "h":
