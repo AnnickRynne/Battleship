@@ -96,7 +96,7 @@ def get_ship_location():
     while True:
         try:
             column = input(
-                "\n  Enter the column of the ship (A to H): ").strip().upper()
+                "  Enter the column of the ship (A to H): ").strip().upper()
             if column in "ABCDEFGH":
                 column = LETTERS_TO_NUMBERS[column]
                 break
@@ -212,7 +212,7 @@ def help_or_quit_game():
     or quit at any time during the game by pressing 'q'
     """
     help_or_quit = input(
-        "\n  Type any key to see your guess, 'h' for help \n"
+        "  Type any key to see your guess, 'h' for help \n"
         "  or 'q' to quit: ").strip().lower()
     if help_or_quit == "h":
         if help_or_quit == "h":

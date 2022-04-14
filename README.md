@@ -5,7 +5,7 @@
 Click on [A Battleship Game](https://a-battleship-game.herokuapp.com/) to access the live project.
 
 
-# OVERVIEW OF THE GAME
+# THE GAME: OVERVIEW
 Originally, the Battleship game started off as a pencil and paper two player guessing game, until it was released as a board game in 1967. Players hide their ships on separate grids, then alternate shots at the opposing player, trying to find and seek their fleet.<br>
 
 My Battleship game is written purely in Python and designed to run on the Code Institute mock terminal on Heroku. It is a one player game, against the computer. 20 battleships are placed at random by the computer on a hidden board. Each ship occupies one cell. The grid has 64 cells (8 x 8). The player fires shots by inputing a row number and a column letter. He's entitled to 20 guesses but only needs to find 5 ships to win the game.<br>
@@ -42,10 +42,12 @@ Correct input: we move to the Rules
 
 ## Rules
 Many people know this game, therefore I give them the option to skip the rules by asking if they know how to play. 
-If they accept to read the rules but find that they're not interested in the game, they can quit. If they chose to continue, we move to the Game.
+If they accept to read the rules but find that they're not interested in the game,
+they can quit. If they chose to continue, we move to the Game.
 
 ## Play the game
-The player only sees one grid (the 'guess' board). He enters a number for a row and a letter for a column of his choice. If it's a miss, 'O' is displayed; a win: X. 
+The player only sees one grid (the 'guess' board). He enters a number for a row and a letter for a column of 
+his choice. If it's a miss, 'O' is displayed; a win: X. 
 If the same coordinates are entered twice, "You guessed that one already" is displayed.
 A 'O': "YOUMISSED" is displayed
 A 'X': "BATTLESHIP SUNK!" is displayed
@@ -58,7 +60,7 @@ During the game, the player also sees the following:
 The player could place his own ships; the 5 ships could have different sizes.<br>
 The number of ships and turns could be increased, the size of the board too.<br>
 
-
+<br>
 # TECHNOLOGIES USED
 ## Languages
 - PYTHON
@@ -88,33 +90,40 @@ The number of ships and turns could be increased, the size of the board too.<br>
 
 ## Fixed Buggs
 - When I printed the computer_board, the ships didn't show. I fixed it by correcting the indentation in the 'while' loop
-- I first put the Rules function at the top and couldn't figure out why the 'sunk' ships didn't show on the player_board. I had to move the function under play_game
+- I first put the Rules function at the top and couldn't figure out why the 'sunk' ships didn't show on the player_board. 
+   I had to move the function under play_game
 - My get_name function didn't work when placed under the 'main' function: return name was missing
 - Couldn't find a method for 'empty' string to validate the name input: used a solution found online that seems to work
 - Added style to "X" (ship) but forgot to do it in the create_ships function so no ship could be found...
 - The try except statement didn't always print a message in get_ship_location: I added a if-else to fix the issue
 
 ## Validation
-My run.py file was passed through the PEP8 validator successfully. I used the validator on a regular basis throughout the project as I find the indentation of long lines of code a bit tricky.
+My run.py file was passed through the PEP8 validator successfully. I used the validator on a regular basis throughout<br>
+the project as I find the indentation of long lines of code a bit tricky.
 
 ![ ](docs/pep8.jpg)
 
+<br>
 
 # DEPLOYMENT
 To deploy project 3, I created an account on the [Heroku website](https://www.heroku.com/)
-<ul>
-   <li>Log in Heroku</li>
-   <li>Click on "New" button in top right corner, select "App"</li>
-   <li>You're in the Heroku dashboard. Enter app name: a-battleship-game ; Enter region: Europe</li>
-   <li>Click on "Create App"</li>
-   <li>Click on the "Settings" tab (important: must be done before "Deploy")</li>
-   <li>"Add buildpack" section: click and select, in this order (you can change the order by dragging if necessary): 1) Heroku/python 2) Heroku/nodejs</li>
-   <li>"Config Vars" section: 1) Config PORT (key) 8000 (value) 2) Config CREDS (Key) and copy-paste content of the package.json file from your vs code folder</li>
-   <li>Click on the "Deploy" tab</li>
-   <li>Method: select GitHub (it should say, 'connected') and connect to your repository by clicking on Search</li>
-   <li>You're connected to your repository: scroll down the page and chose to click on Enable Automatic Deploy or (manual) Deploy Branch to see the deployment</li>
-   <li>When done, "Your app was successfully deployed" appears. Click on the View button to see the app </li>
-</ul>
+
+   - Log in Heroku
+   - Click on "New" button in top right corner, select "App"
+   - You're in the Heroku dashboard. Enter app name: a-battleship-game ; Enter region: Europe
+   - Click on "Create App"
+   - Click on the "Settings" tab (important: must be done before "Deploy")
+   - "Add buildpack" section: click and select, in this order (you can change the order by dragging if necessary):
+      - 1) Heroku/python
+      - 2) Heroku/nodejs
+   - "Config Vars" section: 
+      - 1) Config PORT (key) 8000 (value) 
+      - 2) Config CREDS (Key) and copy-paste content of the package.json file from your vs code folder
+   - Click on the "Deploy" tab
+   - Method: select GitHub (it should say, 'connected') and connect to your repository by clicking on Search
+   - You're connected to your repository: scroll down the page and chose to click on Enable Automatic
+   - When done, "Your app was successfully deployed" appears. Click on the View button to see the app
+   
 <br>
 
 # CREDITS
