@@ -2,13 +2,21 @@
 
 <h1 text-align="center">BATTLESHIP</h1>
 
+
+![ ](docs/battleship.jpg)
+
 Click on [A Battleship Game](https://a-battleship-game.herokuapp.com/) to access the live project.
 
 
 # THE GAME: OVERVIEW
-Originally, the Battleship game started off as a pencil and paper two player guessing game, until it was released as a board game in 1967. Players hide their ships on separate grids, then alternate shots at the opposing player, trying to find and seek their fleet.<br>
+Originally, the Battleship game started off as a pencil and paper two player guessing game, until it was<br>
+released as a board game in 1967. Players hide their ships on separate grids, then alternate shots at <br>
+the opposing player, trying to find and seek their fleet.<br>
 
-My Battleship game is written purely in Python and designed to run on the Code Institute mock terminal on Heroku. It is a one player game, against the computer. 20 battleships are placed at random by the computer on a hidden board. Each ship occupies one cell. The grid has 64 cells (8 x 8). The player fires shots by inputing a row number and a column letter. He's entitled to 20 guesses but only needs to find 5 ships to win the game.<br>
+My Battleship game is written purely in Python and designed to run on the Code Institute mock terminal <br>
+on Heroku. It is a one player game, against the computer. 20 battleships are placed at random by the computer<br>
+on a hidden board. Each ship occupies one cell. The grid has 64 cells (8 x 8). The player fires shots by <br>
+inputing a row number and a column letter. He's entitled to 20 guesses but only needs to find 5 ships to win the game.<br>
 
 # EXPERIENCE (UX)
 The target audience: 
@@ -65,6 +73,11 @@ During the game, the player also sees the following:
 After each turn, the player has the option to leave the game by pressing 'q' or to get a reminder of the rules by pressing 'h'.
 
 ![ ](docs/c_game.jpg)
+
+## End of game
+The game is over when the player sinks 5 battleships or when he/she's out of turns.<br>
+The 'hidden_board', with the 20 ships placed are random, are displayed: the player can compare with his own board!<br>
+The player can start a new game by pressing 's'.
 
 ## Future Features
 The player could place his own ships; the 5 ships could have different sizes.<br>
@@ -138,7 +151,8 @@ To deploy project 3, I created an account on the [Heroku website](https://www.he
 
 # CREDITS
 ## Code:
-I followed some free tutorials found online to help me build the game with Python. I used some code from the Code Institute runnable exercices and challenges. I also found some useful code on GitHub:
+I followed some free tutorials found online to help me build the game with Python. I used some code from the Code Institute <br>
+runnable exercices and challenges. I also found some useful code on GitHub:
 
    - [How to code Battleship in Python - Single player game](https://www.youtube.com/watch?v=tF1WRCrd_HQ)
    - [Coding Advanced Battleship Part I in Python](https://www.youtube.com/watch?v=xz9GrOwQ_5E)
