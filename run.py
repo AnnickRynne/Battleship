@@ -32,13 +32,13 @@ def get_name():
     """
     name = ''
     while True:
-        name = input("Please enter your name: ").strip().capitalize()
+        name = input("  Please enter your name: ").strip().capitalize()
         if name != '':
-            print(f"\nThank you for joining us {name}!")
+            print(f"\n  Thank you for joining us {name}!")
             rules()
             break
         else:
-            print("This is not an appropriate name.")
+            print("  This is not an appropriate name.")
 
 
 def print_board(board):
@@ -50,11 +50,11 @@ def print_board(board):
     board: placeholder to format player_board to be printed
     and the computer_board, to be hidden
     """
-    print("\n  A B C D E F G H")
-    print("  -+-+-+-+-+-+-+-+")
+    print("  \n  A B C D E F G H")
+    print("    -+-+-+-+-+-+-+-+")
     row_number = 1
     for row in board:
-        print("%d|%s|" % (row_number, "|".join(row)))
+        print("  %d|%s|" % (row_number, "|".join(row)))
         row_number += 1
 
 
@@ -83,27 +83,29 @@ def get_ship_location():
     """
     while True:
         try:
-            row = input("\nEnter the row of the ship (1 to 8): ").strip()
+            row = input("\n  Enter the row of the ship (1 to 8): ").strip()
             if row in "12345678":
                 row = int(row) - 1
                 break
             else:
-                print("Wrong input, please select a row between 1 and 8")
+                print("  Wrong input, please select a row between 1 and 8")
         except ValueError:
-            print("Not an appropriate choice, please enter a valid row")
+            print("  Not an appropriate choice, please enter a valid row")
         except TypeError:
-            print("Not an appropriate choice, please enter a valid row")
+            print("  Not an appropriate choice, please enter a valid row")
     while True:
         try:
-            column = input("Enter the column of the ship (A to H): ").strip().upper()
+            column = input(
+                "  Enter the column of the ship (A to H): ").strip().upper()
             if column in "ABCDEFGH":
                 column = LETTERS_TO_NUMBERS[column]
                 break
             else:
-                print("Wrong input, please select a column between A and H")
+                print("  Wrong input, please select a column between A and H")
         except KeyError:
-            print("Not an appropriate choice, please select a valid column")
+            print("  Not an appropriate choice, please select a valid column")
     return row, column
+
 
 def count_hit_ships(board):
     """
@@ -120,7 +122,7 @@ def count_hit_ships(board):
         for column in row:
             if column == "\033[31;1;1mX\033[0m":
                 count += 1
-    print(f"Score = {count} out of 5")
+    print(f"  Score = {count} out of 5")
     return count
 
 
@@ -138,36 +140,36 @@ def play_game():
     hidden_board = [[" "] * 8 for x in range(8)]
     guess_board = [[" "] * 8 for i in range(8)]
     create_ships(hidden_board)
-    # print_board(hidden_board)
+
     turns = 15
     while turns > 0:
         print(
-            "Guess a battleship location:\n"
-            "Legend: X is a hit; ~ is a miss"
+            "  Guess a battleship location:\n"
+            "  Legend: X is a hit; ~ is a miss"
         )
         print_board(guess_board)
         row, column = get_ship_location()
         if guess_board[row][column] == "\033[36;1;1m~\033[0m":
-            print("\nYou guessed that one already\n")
+            print("\n  You guessed that one already\n")
         elif hidden_board[row][column] == "\033[31;1;1mX\033[0m":
-            print("\nBATTLESHIP HIT!\n")
+            print("\n  BATTLESHIP SUNK!\n")
             guess_board[row][column] = "\033[31;1;1mX\033[0m"
             turns -= 1
         else:
-            print("\nYOU MISSED!\n")
+            print("\n  YOU MISSED\n")
             guess_board[row][column] = "\033[36;1;1m~\033[0m"
             turns -= 1
         if count_hit_ships(guess_board) == 5:
-            print("\nYOU WIN!\n")
+            print("\n  YOU WIN!\n")
             print_board(guess_board)
             quit()
-        print(f"You have {turns} turn(s) left\n")
+        print(f"  You have {turns} turn(s) left\n")
         if turns == 0:
-            print("\nYou've run out of turns: GAME OVER")
-            print("This is the computer board:")
+            print("\n  You've run out of turns: GAME OVER")
+            print("  This is the computer board:")
             print_board(hidden_board)
             if input(
-                "\nType 's' to start again or any other key to quit: "
+                "\n  Type 's' to start again or any other key to quit: "
                     ).strip().lower() == "s":
                 play_game()
             else:
@@ -181,25 +183,25 @@ def rules():
     Returns:
     strings: "y" or "n"
     """
-    c_rules = input("\nDo you know how to play? y/n: ").strip().lower()
+    c_rules = input("\n  Do you know how to play? y/n: ").strip().lower()
     if c_rules == "n":
         print(
-            "\nYou must destroy 5 ships placed at random by the computer "
-            "on the grid. \nEach ship occupies one cell.\n"
-            "Enter a number for a row and a letter for the column.\n"
-            "You have 15 turns to do serious damage to the computer's\n"
-            "hidden fleet...which counts 20 ships in total\n\nGOOD LUCK!\n"
+            "\n  You must destroy 5 ships placed at random by the computer\n"
+            "  on the board. Each ship occupies one cell.\n"
+            "  Enter a number for a row and a letter for the column.\n"
+            "  You have 15 turns to do serious damage to the computer's\n"
+            "  hidden fleet...which counts 20 ships in total\n\n  GOOD LUCK!\n"
             )
-        if input("Ready to play? y/n: ").strip().lower() != "y":
-            print("Sorry to see you leave...QUIT")
+        if input("  Ready to play? y/n: ").strip().lower() != "y":
+            print("  Sorry to see you leave...QUIT")
             quit()
         else:
             play_game()
     elif c_rules == "y":
-        print("\nOk, let's play then!")
+        print("\n  Ok, let's play then!")
         play_game()
     else:
-        print("That is not a valid option. Please try again")
+        print("  That is not a valid option. Please try again")
 
 
 def help_or_quit_game():
@@ -208,17 +210,17 @@ def help_or_quit_game():
     or quit at any time during the game by pressing 'q'
     """
     help_or_quit = input(
-        "Type any key to continue, 'h' for help \n"
-        "or 'q' to quit: ").strip().lower()
+        "  Type any key to continue, 'h' for help \n"
+        "  or 'q' to quit: ").strip().lower()
     if help_or_quit == "h":
         if help_or_quit == "h":
             print(
                 "------------------------------------------\n"
-                "When you guess a row and a column\n"
-                "you either miss or hit a battleship:\n"
-                "A red X is a hit; a blue 'wave' is a miss\n"
-                "There are 20 hidden ships: you only need\n"
-                "to find 5 ships to win!\n"
+                "  When you guess a row and a column\n"
+                "  you either miss or hit a battleship:\n"
+                "  A red X is a hit; a blue 'wave' is a miss\n"
+                "  There are 20 hidden ships: you only need\n"
+                "  to find 5 ships to win!\n"
                 "------------------------------------------"
                 )
     elif help_or_quit == "q":
@@ -234,7 +236,7 @@ def main():
     rules
     play_game functions from main()
     """
-    print("\033[32;1;4mWELCOME TO OUR BATTLESHIP GAME!\033[0m\n\n")
+    print("\n  \033[36;1;1mWELCOME TO THE BATTLESHIP GAME!\033[0m\n\n")
     get_name()
     rules()
     play_game()

@@ -56,11 +56,6 @@ During the game, the player also sees the following:
 ## Future Features
 
 The player could place his own ships; the 5 ships could have different sizes. The number of ships and turns could be increased, the size of the board too.
-
-## Data Model
-
-I used functions for all the different stages of the game. 
-The functions are called in a main function.
 <br>
 
 # TECHNOLOGIES USED
@@ -84,10 +79,11 @@ The functions are called in a main function.
 <br>
 
 # TESTING
-- I tested my code in pep8 on numerous occasions
+- I tested my code in pep8 on numerous occasions to check indentation
 - I used 'print' to check the returned data and printed the 'hidden' board
-- I fixed the issues as described in my local terminal
-- I ran the game app in Heroku once deployeds
+- I fixed the issues as described in my local terminal using 'traceback'
+- I ran the game app in Heroku once deployed
+- I asked my family to test the game
 
 <!-- ![ ](docs/pep8.png) -->
 
@@ -97,8 +93,7 @@ The functions are called in a main function.
 - My get_name function didn't work when placed under the 'main' function: return name was missing
 - Couldn't find a method for 'empty' string to validate the name input: used a solution found online that seems to work
 - Added style to "X" (ship) but forgot to do it in the create_ships function so no ship could be found...
-
-## Remaining Buggs
+- The try except statement didn't always print a message in get_ship_location: I added a if-else to fix the issue
 
 <br>
 
