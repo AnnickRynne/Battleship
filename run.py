@@ -50,7 +50,7 @@ def print_board(board):
     board: placeholder to format player_board to be printed
     and the computer_board, to be hidden
     """
-    print("  \n  A B C D E F G H")
+    print("\n    A B C D E F G H")
     print("    -+-+-+-+-+-+-+-+")
     row_number = 1
     for row in board:
@@ -88,22 +88,22 @@ def get_ship_location():
                 row = int(row) - 1
                 break
             else:
-                print("  Wrong input, please select a row between 1 and 8")
+                print("\n  Wrong input, please select a row between 1 and 8")
         except ValueError:
-            print("  Not an appropriate choice, please enter a valid row")
+            print("\n  Not an appropriate choice, please enter a valid row")
         except TypeError:
-            print("  Not an appropriate choice, please enter a valid row")
+            print("\n  Not an appropriate choice, please enter a valid row")
     while True:
         try:
             column = input(
-                "  Enter the column of the ship (A to H): ").strip().upper()
+                "\n  Enter the column of the ship (A to H): ").strip().upper()
             if column in "ABCDEFGH":
                 column = LETTERS_TO_NUMBERS[column]
                 break
             else:
-                print("  Wrong input, please select a column between A and H")
+                print("\n  Wrong input, please select a column between A and H")
         except KeyError:
-            print("  Not an appropriate choice, please select a valid column")
+            print("\n  Not an appropriate choice, please select a valid column")
     return row, column
 
 
@@ -210,18 +210,18 @@ def help_or_quit_game():
     or quit at any time during the game by pressing 'q'
     """
     help_or_quit = input(
-        "  Type any key to continue, 'h' for help \n"
+        "\n  Type any key to continue, 'h' for help \n"
         "  or 'q' to quit: ").strip().lower()
     if help_or_quit == "h":
         if help_or_quit == "h":
             print(
-                "------------------------------------------\n"
+                "\n  -----------------------------------------\n"
                 "  When you guess a row and a column\n"
                 "  you either miss or hit a battleship:\n"
                 "  A red X is a hit; a blue 'wave' is a miss\n"
                 "  There are 20 hidden ships: you only need\n"
                 "  to find 5 ships to win!\n"
-                "------------------------------------------"
+                "  -----------------------------------------"
                 )
     elif help_or_quit == "q":
         quit()
@@ -236,7 +236,7 @@ def main():
     rules
     play_game functions from main()
     """
-    print("\n  \033[36;1;1mWELCOME TO THE BATTLESHIP GAME!\033[0m\n\n")
+    print("\n          \033[36;1;1mWELCOME TO THE BATTLESHIP GAME!\033[0m\n\n")
     get_name()
     rules()
     play_game()
