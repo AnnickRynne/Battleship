@@ -36,9 +36,13 @@ The target audience:
 
 # FEATURES
 ## Welcome! Enter name
-After a 'Welcome' message, the player must enter his/her name to continue. 
-No input: "not an appropriate name" is displayed
-Correct input: we move to the Rules
+   - 'Welcome' message, the player enters his/her name
+         - No input: "not an appropriate name" is displayed
+         - The name is only used once, for the thank you message
+   - If player doesn't answer "n" to the next question, the game starts
+
+
+![ ](docs/a_welcome.jpg)
 
 ## Rules
 Many people know this game, therefore I give them the option to skip the rules by asking if they know how to play. 
@@ -123,7 +127,7 @@ To deploy project 3, I created an account on the [Heroku website](https://www.he
    - Method: select GitHub (it should say, 'connected') and connect to your repository by clicking on Search
    - You're connected to your repository: scroll down the page and chose to click on Enable Automatic
    - When done, "Your app was successfully deployed" appears. Click on the View button to see the app
-   
+
 <br>
 
 # CREDITS

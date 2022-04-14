@@ -226,6 +226,7 @@ def help_or_quit_game():
                 "  -----------------------------------------"
                 )
     elif help_or_quit == "q":
+        print("  Sorry to see you leave...")
         quit()
     else:
         pass
