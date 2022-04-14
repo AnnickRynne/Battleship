@@ -5,13 +5,17 @@
 Click on [A Battleship Game](https://a-battleship-game.herokuapp.com/) to access the live project.
 
 
-# INTRODUCTION
-Battleship is game written purely in Python and designed to run on the Code Institute mock terminal on Heroku.
+# OVERVIEW OF THE GAME
+Originally, the Battleship game started off as a pencil and paper two player guessing game, until it was released as a board game in 1967. Players hide their ships on separate grids, then alternate shots at the opposing player, trying to find and seek their fleet.<br>
 
-<br>
+My Battleship game is written purely in Python and designed to run on the Code Institute mock terminal on Heroku. It is a one player game, against the computer. 20 battleships are placed at random by the computer on a hidden board. Each ship occupies one cell. The grid has 64 cells (8 x 8). The player fires shots by inputing a row number and a column letter. He's entitled to 20 guesses but only needs to find 5 ships to win the game.<br>
 
 # EXPERIENCE (UX)
-The target audience: Playing on a Python terminal will attract an audience who is nostalgic of the first games that they used to play with in the seventies. But it's likely that a younger generation of 'gamers' will find the it interesting too. Terminal based games seem to be becoming popular again.
+The target audience: 
+   - Children (this game is very easy to play)
+   - Gamers in general
+   - People who loved the board game in the 70's and 80's
+   - People who enjoyed the first terminal games
 
 ## User Stories
 1. First Time Visitor Goals
@@ -32,31 +36,28 @@ The target audience: Playing on a Python terminal will attract an audience who i
 
 # FEATURES
 ## Welcome! Enter name
-
 After a 'Welcome' message, the player must enter his/her name to continue. 
 No input: "not an appropriate name" is displayed
 Correct input: we move to the Rules
 
 ## Rules
-
 Many people know this game, therefore I give them the option to skip the rules by asking if they know how to play. 
 If they accept to read the rules but find that they're not interested in the game, they can quit. If they chose to continue, we move to the Game.
 
 ## Play the game
-
 The player only sees one grid (the 'guess' board). He enters a number for a row and a letter for a column of his choice. If it's a miss, 'O' is displayed; a win: X. 
 If the same coordinates are entered twice, "You guessed that one already" is displayed.
-A 'O': "MISSED" is displayed
-A 'X': "BATTLESHIP HIT!" is displayed
+A 'O': "YOUMISSED" is displayed
+A 'X': "BATTLESHIP SUNK!" is displayed
 
 During the game, the player also sees the following:
    - His score out of 5
    - Number of turns left out of 10
 
 ## Future Features
+The player could place his own ships; the 5 ships could have different sizes.<br>
+The number of ships and turns could be increased, the size of the board too.<br>
 
-The player could place his own ships; the 5 ships could have different sizes. The number of ships and turns could be increased, the size of the board too.
-<br>
 
 # TECHNOLOGIES USED
 ## Languages
@@ -79,13 +80,11 @@ The player could place his own ships; the 5 ships could have different sizes. Th
 <br>
 
 # TESTING
-- I tested my code in pep8 on numerous occasions to check indentation
-- I used 'print' to check the returned data and printed the 'hidden' board
-- I fixed the issues as described in my local terminal using 'traceback'
-- I ran the game app in Heroku once deployed
-- I asked my family to test the game
-
-<!-- ![ ](docs/pep8.png) -->
+- Used 'print' to check the returned data and printed the 'hidden' board
+- Tested in terminal and online in Heroku
+- Fixed issues as described in 'traceback'
+- Tested in PEP8 to validate indentation and line length mostly
+- Tested by a third party, with focus on invalid input
 
 ## Fixed Buggs
 - When I printed the computer_board, the ships didn't show. I fixed it by correcting the indentation in the 'while' loop
@@ -95,7 +94,11 @@ The player could place his own ships; the 5 ships could have different sizes. Th
 - Added style to "X" (ship) but forgot to do it in the create_ships function so no ship could be found...
 - The try except statement didn't always print a message in get_ship_location: I added a if-else to fix the issue
 
-<br>
+## Validation
+My run.py file was passed through the PEP8 validator successfully. I used the validator on a regular basis throughout the project as I find the indentation of long lines of code a bit tricky.
+
+![ ](docs/pep8.jpg)
+
 
 # DEPLOYMENT
 To deploy project 3, I created an account on the [Heroku website](https://www.heroku.com/)
