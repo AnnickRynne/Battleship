@@ -76,7 +76,7 @@ After each turn, the player has the option to leave the game by pressing 'q' or 
 
 ## End of game
 The game is over when the player sinks 5 battleships or when he/she's out of turns.<br>
-The 'hidden_board', with the 20 ships placed are random, are displayed: the player can compare with his own board!<br>
+The 'hidden_board', with the 20 ships placed at random, are displayed: the player can compare with his own board.<br>
 The player can start a new game by pressing 's'.
 
 ## Future Features
@@ -84,7 +84,9 @@ The player could place his own ships; the 5 ships could have different sizes.<br
 The number of ships and turns could be increased, the size of the board too.<br>
 
 <br>
+
 # TECHNOLOGIES USED
+
 ## Languages
 - PYTHON
 
@@ -98,10 +100,13 @@ The number of ships and turns could be increased, the size of the board too.<br>
       <li>Heroku: Used to run in the Code Institute mock terminal</li>
 </ul>
 
-
 ## Programmes and tools
 - PEP8 to validate the code
 - Lucidchart to create the above flowchart
+
+## Data Model
+I created a 'main' function. The only stored data are the replies from the user <br>
+(like 'y', 'n', 'q', '1' for row etc.) passed to the functions to keep the game going).
 
 <br>
 
@@ -114,8 +119,8 @@ The number of ships and turns could be increased, the size of the board too.<br>
 
 ## Fixed Buggs
 - When I printed the computer_board, the ships didn't show. I fixed it by correcting the indentation in the 'while' loop
-- I first put the Rules function at the top and couldn't figure out why the 'sunk' ships didn't show on the player_board. 
-   I had to move the function under play_game
+- I first put the Rules function at the top and couldn't figure out why the 'sunk' ships didn't show on the player_board
+- I had to move the function under play_game
 - My get_name function didn't work when placed under the 'main' function: return name was missing
 - Couldn't find a method for 'empty' string to validate the name input: used a solution found online that seems to work
 - Added style to "X" (ship) but forgot to do it in the create_ships function so no ship could be found...
@@ -161,4 +166,4 @@ runnable exercices and challenges. I also found some useful code on GitHub:
 
 ## Acknowledgements to: 
 - My cohort classmates for sharing useful information every day and useful info on the Code Institute Slack Channels
-- The developers who post helpful videos on games tutorials for beginners in JavaScript on YouTube
+- The developers who post helpful videos on games tutorials for beginners in python on YouTube
