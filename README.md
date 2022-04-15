@@ -119,12 +119,11 @@ I created a 'main' function. The only stored data are the replies from the user 
 
 ## Fixed Buggs
 - When I printed the computer_board, the ships didn't show. I fixed it by correcting the indentation in the 'while' loop
-- I first put the Rules function at the top and couldn't figure out why the 'sunk' ships didn't show on the player_board
-- I had to move the function under play_game
-- My get_name function didn't work when placed under the 'main' function: return name was missing
+- The 'sunk' battleship ships didn't show on the player_board at first: I had to move my functions around
+- My get_name function didn't work when placed under the 'main' function: "return name" was missing
 - Couldn't find a method for 'empty' string to validate the name input: used a solution found online that seems to work
 - Added style to "X" (ship) but forgot to do it in the create_ships function so no ship could be found...
-- The try except statement didn't always print a message in get_ship_location: I added a if-else to fix the issue
+- The try-except statement didn't always print an error message in get_ship_location: I added a if-else to it
 
 ## Validation
 My run.py file was passed through the PEP8 validator successfully. I used the validator on a regular basis throughout<br>
