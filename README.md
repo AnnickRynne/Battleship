@@ -16,7 +16,7 @@ the opposing player, trying to find and seek their fleet.<br>
 My Battleship game is written purely in Python and designed to run on the Code Institute mock terminal <br>
 on Heroku. It is a one player game, against the computer. 20 battleships are placed at random by the computer<br>
 on a hidden board. Each ship occupies one cell. The grid has 64 cells (8 x 8). The player fires shots by <br>
-inputing a row number and a column letter. He's entitled to 20 guesses but only needs to find 5 ships to win the game.<br>
+inputting a row number and a column letter. He's entitled to 20 guesses but only needs to find 5 ships to win the game.<br>
 
 # EXPERIENCE (UX)
 The target audience: 
@@ -97,6 +97,7 @@ The number of ships and turns could be increased, the size of the board too.<br>
       <li>GitHub: Used to store the projects code after being pushed from Git</li>
       <li>Heroku: Used to run in the Code Institute mock terminal</li>
 </ul>
+
 
 ## Programmes and tools
 - PEP8 to validate the code
